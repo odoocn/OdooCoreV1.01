@@ -21,6 +21,10 @@ package com.odoo.base.addons;
 
 import android.content.Context;
 
+import com.odoo.base.addons.cmms.CmmsFailure;
+import com.odoo.base.addons.cmms.CmmsHistory;
+import com.odoo.base.addons.cmms.CmmsIntervention;
+import com.odoo.base.addons.cmms.CmmsPreventive;
 import com.odoo.base.addons.ir.IrAttachment;
 import com.odoo.base.addons.ir.IrModel;
 import com.odoo.base.addons.mail.MailMessage;
@@ -48,6 +52,10 @@ public class BaseModels {
         models.add(new IrAttachment(context, user));
         models.add(new MailMessage(context, user));
         models.add(new CmmsEquipment(context, user));
+        models.add(new CmmsFailure(context, user));
+        models.add(new CmmsHistory(context, user));
+        models.add(new CmmsIntervention(context, user));
+        models.add(new CmmsPreventive(context, user));
         return models;
     }
 }

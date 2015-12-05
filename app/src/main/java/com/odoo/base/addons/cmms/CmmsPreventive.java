@@ -26,13 +26,26 @@ public class CmmsPreventive extends OModel {
     OColumn recurrent = new OColumn("recurrent", OBoolean.class);
     OColumn days_interval = new OColumn("days_interval", OInteger.class).setDefaultValue(180);
     OColumn days_last_done = new OColumn("days_last_done", ODate.class).setRequired();
+    OColumn days_warning = new OColumn("days_warn_period", OInteger.class).setDefaultValue(30);
+    OColumn user = new OColumn("user_id", OVarchar.class);
     public CmmsPreventive(Context context, OUser user) {
-        super(context, " cmms.history", user);
+        super(context, " cmms.pm", user);
         setDefaultNameColumn("name");
     }
     @Override
     public Uri uri() {
         return buildURI(AUTHORITY);
+    }
+
+    public int days_left()
+    {
+      //  days_last_done.
+        return 0;
+    }
+    public String status()
+    {
+        //  days_last_done.
+        return "";
     }
 }
 //        'name':fields.char('Ref PM',size=20, required=True),
