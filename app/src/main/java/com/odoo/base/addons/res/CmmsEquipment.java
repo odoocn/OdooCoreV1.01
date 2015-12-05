@@ -17,7 +17,7 @@ public class CmmsEquipment extends OModel {
     public static final String TAG = CmmsEquipment.class.getSimpleName();
     OColumn name = new OColumn("name", OVarchar.class);
     OColumn type = new OColumn("type", OVarchar.class);
-    //OColumn equipment = new OColumn("equipment", CmmsEquipment.class, OColumn.RelationType.ManyToOne);
+  //  OColumn equipment = new OColumn("equipment", CmmsEquipment.class, OColumn.RelationType.ManyToOne);
 
     public CmmsEquipment(Context context, OUser user) {
         super(context, "cmms.equipment", user);
