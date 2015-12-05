@@ -24,7 +24,7 @@ import android.content.Context;
 import com.odoo.base.addons.ir.IrAttachment;
 import com.odoo.base.addons.ir.IrModel;
 import com.odoo.base.addons.mail.MailMessage;
-import com.odoo.base.addons.res.CmmsEquipment;
+import com.odoo.base.addons.cmms.CmmsEquipment;
 import com.odoo.base.addons.res.ResCompany;
 import com.odoo.base.addons.res.ResPartner;
 import com.odoo.base.addons.res.ResUsers;

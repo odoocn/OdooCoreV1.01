@@ -4,7 +4,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -17,8 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.odoo.R;
-import com.odoo.base.addons.BaseModels;
-import com.odoo.base.addons.res.CmmsEquipment;
+import com.odoo.base.addons.cmms.CmmsEquipment;
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.addons.fragment.IOnSearchViewChangeListener;
@@ -26,7 +24,6 @@ import com.odoo.core.support.addons.fragment.ISyncStatusObserverListener;
 import com.odoo.core.support.drawer.ODrawerItem;
 import com.odoo.core.support.list.OCursorListAdapter;
 import com.odoo.core.utils.BitmapUtils;
-import com.odoo.core.utils.IntentUtils;
 import com.odoo.core.utils.OControls;
 
 import java.util.ArrayList;

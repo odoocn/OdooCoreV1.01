@@ -3,7 +3,7 @@ package com.odoo.addons.Equipment.services;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.odoo.base.addons.res.CmmsEquipment;
+import com.odoo.base.addons.cmms.CmmsEquipment;
 import com.odoo.core.service.OSyncAdapter;
 import com.odoo.core.service.OSyncService;
 import com.odoo.core.support.OUser;
