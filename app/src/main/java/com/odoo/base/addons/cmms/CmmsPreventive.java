@@ -16,7 +16,7 @@ import com.odoo.core.support.OUser;
  * Created by Sylwek on 05/12/2015.
  */
 public class CmmsPreventive extends OModel {
-    public static final String AUTHORITY = "com.odoo.addons.Equipment.Equipment";
+    public static final String AUTHORITY = "com.odoo.addons.preventive.Preventive";
     public static final String TAG =  CmmsPreventive.class.getSimpleName();
     OColumn name = new OColumn("name", OVarchar.class);
 //    OColumn type = new OColumn("type", OVarchar.class);

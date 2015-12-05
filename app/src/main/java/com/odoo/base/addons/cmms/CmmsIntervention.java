@@ -15,7 +15,7 @@ import com.odoo.core.support.OUser;
  * Created by Sylwek on 05/12/2015.
  */
 public class CmmsIntervention extends OModel {
-    public static final String AUTHORITY = "com.odoo.addons.Equipment.Equipment";
+    public static final String AUTHORITY = "com.odoo.addons.intervention.Intervention";
     public static final String TAG = CmmsIntervention.class.getSimpleName();
     OColumn name = new OColumn("name", OVarchar.class);
     OColumn equipment = new OColumn("equipment_id", CmmsEquipment.class, OColumn.RelationType.ManyToOne).setRequired();
@@ -25,8 +25,8 @@ public class CmmsIntervention extends OModel {
     OColumn motif = new OColumn("motif", OVarchar.class);
     OColumn intervention_date = new OColumn("date_inter", ODate.class);
     OColumn end_date = new OColumn("date_end", ODate.class);
-    OColumn issue = new OColumn("issue", CmmsFailure.class, OColumn.RelationType.ManyToOne).setRequired();
-    //  OColumn equipment = new OColumn("equipment", CmmsEquipment.class, OColumn.RelationType.ManyToOne);
+  //  OColumn issue = new OColumn("issue", CmmsFailure.class, OColumn.RelationType.ManyToOne).setRequired();
+     // OColumn equipment = new OColumn("equipment", CmmsEquipment.class, OColumn.RelationType.ManyToOne);
     OColumn state = new OColumn("state", OSelection.class)
             .addSelection("draft","Draft")
             .addSelection("done", "Fixed")

@@ -12,7 +12,7 @@ import com.odoo.core.support.OUser;
  * Created by Sylwek on 05/12/2015.
  */
 public class CmmsFailure extends OModel {
-    public static final String AUTHORITY = "com.odoo.addons.Equipment.Equipment";
+    public static final String AUTHORITY = "com.odoo.addons.failure.Failure";
     public static final String TAG =  CmmsFailure.class.getSimpleName();
     OColumn name = new OColumn("name", OVarchar.class);
     OColumn code = new OColumn("code", OVarchar.class);

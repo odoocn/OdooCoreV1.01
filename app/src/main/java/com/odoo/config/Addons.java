@@ -21,6 +21,9 @@ package com.odoo.config;
 
 import com.odoo.addons.Equipment.Equipment;
 import com.odoo.addons.customers.Customers;
+import com.odoo.addons.failure.Failure;
+import com.odoo.addons.intervention.Intervention;
+import com.odoo.addons.preventive.Preventive;
 import com.odoo.core.support.addons.AddonsHelper;
 import com.odoo.core.support.addons.OAddon;
 
@@ -34,8 +37,7 @@ public class Addons extends AddonsHelper {
      */
     OAddon customers = new OAddon(Customers.class);
     OAddon equipment = new OAddon(Equipment.class).setDefault();
-//    OAddon failure = new OAddon(.class);
-//    OAddon history = new OAddon(Equipment.class);
-//    OAddon intervention = new OAddon(Equipment.class);
-//    OAddon preventive = new OAddon(Equipment.class);
+    OAddon failure = new OAddon(Failure.class);
+    OAddon intervention = new OAddon(Intervention.class);
+    OAddon preventive = new OAddon(Preventive.class);
 }

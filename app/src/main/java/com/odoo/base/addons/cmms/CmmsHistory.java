@@ -13,7 +13,7 @@ import com.odoo.core.support.OUser;
  * Created by Sylwek on 05/12/2015.
  */
 public class CmmsHistory extends OModel {
-    public static final String AUTHORITY = "com.odoo.addons.Equipment.Equipment";
+    public static final String AUTHORITY = "com.odoo.addons.history.History";
     public static final String TAG =  CmmsHistory.class.getSimpleName();
     OColumn equipment = new OColumn("equipment_id", CmmsEquipment.class, OColumn.RelationType.ManyToOne).setRequired();
     OColumn customer = new OColumn("customer", ResPartner.class, OColumn.RelationType.ManyToOne).setRequired();

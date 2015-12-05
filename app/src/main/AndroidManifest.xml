@@ -114,6 +114,7 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/customer_sync_adapter" />
         </service>
+        <!-- Equipment Sync  -->
         <provider
             android:name="com.odoo.addons.Equipment.providers.EquipmentSyncProvider"
             android:authorities="com.odoo.addons.Equipment.Equipment"
@@ -132,7 +133,25 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/equipment_sync_adapter" />
         </service>
+        <!-- Intervention Sync  -->
+        <provider
+            android:name="com.odoo.addons.intervention.providers.InterventionSyncProvider"
+            android:authorities="com.odoo.addons.intervention.Intervention"
+            android:label="Intervention"
+            android:multiprocess="true" />
 
+        <service
+            android:name="com.odoo.addons.intervention.services.InterventionSyncService"
+            android:exported="true"
+            android:process=":sync_intervention">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@xml/intervention_sync_adapter" />
+        </service>
         <activity
             android:name="com.odoo.addons.customers.CustomerDetails"
             android:windowSoftInputMode="adjustPan" />
