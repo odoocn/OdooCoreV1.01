@@ -1,0 +1,17 @@
+package com.odoo.addons.Equipment.providers;
+
+import com.odoo.base.addons.res.CmmsEquipment;
+import com.odoo.core.orm.provider.BaseModelProvider;
+
+/**
+ * Created by burol on 02/12/2015.
+ */
+public class EquipmentSyncProvider extends BaseModelProvider {
+    public static final String TAG = EquipmentSyncProvider.class.getSimpleName();
+
+    @Override
+    public String authority() {
+        return CmmsEquipment.AUTHORITY;
+    }
+
+}
