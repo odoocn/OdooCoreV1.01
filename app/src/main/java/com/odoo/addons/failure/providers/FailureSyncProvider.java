@@ -1,7 +1,7 @@
 package com.odoo.addons.failure.providers;
 
 
-import com.odoo.base.addons.cmms.CmmsFailure;
+import com.odoo.base.addons.res.CmmsFailure;
 import com.odoo.core.orm.provider.BaseModelProvider;
 
 /**

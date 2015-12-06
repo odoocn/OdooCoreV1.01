@@ -3,7 +3,7 @@ package com.odoo.addons.preventive.services;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.odoo.base.addons.cmms.CmmsPreventive;
+import com.odoo.base.addons.res.CmmsPreventive;
 import com.odoo.core.service.OSyncAdapter;
 import com.odoo.core.service.OSyncService;
 import com.odoo.core.support.OUser;

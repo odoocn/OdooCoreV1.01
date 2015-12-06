@@ -1,6 +1,6 @@
 package com.odoo.addons.preventive.providers;
 
-import com.odoo.base.addons.cmms.CmmsPreventive;
+import com.odoo.base.addons.res.CmmsPreventive;
 import com.odoo.core.orm.provider.BaseModelProvider;
 
 /**

@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.odoo.R;
-import com.odoo.base.addons.cmms.CmmsEquipment;
+import com.odoo.base.addons.res.CmmsEquipment;
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.addons.fragment.IOnSearchViewChangeListener;

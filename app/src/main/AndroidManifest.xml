@@ -133,7 +133,7 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/equipment_sync_adapter" />
         </service>
-        <!-- Intervention Sync  -->
+        <!-- Intervention Sync-->
         <provider
             android:name="com.odoo.addons.intervention.providers.InterventionSyncProvider"
             android:authorities="com.odoo.addons.intervention.Intervention"
@@ -152,6 +152,7 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/intervention_sync_adapter" />
         </service>
+
         <activity
             android:name="com.odoo.addons.customers.CustomerDetails"
             android:windowSoftInputMode="adjustPan" />

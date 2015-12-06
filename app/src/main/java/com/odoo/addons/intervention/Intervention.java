@@ -2,8 +2,6 @@ package com.odoo.addons.intervention;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -17,14 +15,13 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.odoo.R;
-import com.odoo.base.addons.cmms.CmmsIntervention;
+import com.odoo.base.addons.res.CmmsIntervention;
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.addons.fragment.IOnSearchViewChangeListener;
 import com.odoo.core.support.addons.fragment.ISyncStatusObserverListener;
 import com.odoo.core.support.drawer.ODrawerItem;
 import com.odoo.core.support.list.OCursorListAdapter;
-import com.odoo.core.utils.BitmapUtils;
 import com.odoo.core.utils.OControls;
 
 import java.util.ArrayList;
@@ -46,10 +43,11 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
 
     ///////////////////////////////////////
     public static final String TAG = CmmsIntervention.class.getSimpleName();
+
     @Override
     public List<ODrawerItem> drawerMenus(Context context) {
         List<ODrawerItem> menu = new ArrayList<>();
-        menu.add(new ODrawerItem(TAG).setTitle("Equipment").setInstance(new Intervention()));
+        menu.add(new ODrawerItem(TAG).setTitle("Intervention").setInstance(new Intervention()));
         return menu;
     }
 
@@ -74,23 +72,25 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
 //
 //
         setHasSyncStatusObserver(TAG, this, db());
-//    getLoaderManager().initLoader(0, null, this);
+      //  getLoaderManager().initLoader(0, null, Intervention.this);
         setHasSwipeRefreshView(view, R.id.swipe_container, this);
         mView = view;
         // mType = Type.valueOf(getArguments().getString(EXTRA_KEY_TYPE));
         mPartnersList = (ListView) view.findViewById(R.id.listview);
-        listAdapter = new OCursorListAdapter(getActivity(), null, R.layout.equipment_row_item);
+        listAdapter = new OCursorListAdapter(getActivity(), null, R.layout.intervention_row_item);
         listAdapter.setOnViewBindListener(this);
         //   listAdapter.setHasSectionIndexers(true, "name");
         mPartnersList.setAdapter(listAdapter);
         mPartnersList.setFastScrollAlwaysVisible(true);
         mPartnersList.setOnItemClickListener(this);
         setHasFloatingButton(view, R.id.fabButton, mPartnersList, this);
-        getLoaderManager().initLoader(0, null, this);
+        getLoaderManager().initLoader(0, null, Intervention.this);
+        Log.i("oVC", "intervention OnViewCreated");
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
+        Log.i("oLF","on Load Finished started inervention");
         listAdapter.changeCursor(data);
         if (data.getCount() > 0) {
             OControls.setGone(mView, R.id.loadingProgress);
@@ -103,7 +103,7 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
             OControls.setVisible(mView, R.id.customer_no_items);
             setHasSwipeRefreshView(mView, R.id.customer_no_items, Intervention.this);
             OControls.setImage(mView, R.id.icon, R.drawable.ic_action_customers);
-            OControls.setText(mView, R.id.title,"no equipment found");
+            OControls.setText(mView, R.id.title, "no equipment found");
             OControls.setText(mView, R.id.subTitle, "");
         }
         if (db().isEmptyTable() && !syncRequested) {
@@ -112,6 +112,7 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
             Log.i("db", "sync req");
         }
     }
+
     //    private void loadActivity(ODataRow row) {
 //        Bundle data = null;
 //        if (row != null) {
@@ -121,6 +122,7 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
 //    }
     @Override
     public Class<CmmsIntervention> database() {
+        Log.i("cc","Class cmms Intervention");
         return CmmsIntervention.class;
     }
 
@@ -136,23 +138,22 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
 
     @Override
     public void onStatusChange(Boolean changed) {
-        if(changed){
+        if (changed) {
             getLoaderManager().restartLoader(0, null, this);
         }
     }
-
     @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+    public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         Log.i("OC", "started onCreateLoader");
-        return new CursorLoader(getActivity(), db().uri(), null, null, null,"name");
-        //  Log.i("OC", "finishing onCreateLoader");
-
+        return new CursorLoader(getActivity(), db().uri(), null, null, null, null);
     }
+
 
 
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
+        Log.i("oLR","on Load Reset started inervention");
         listAdapter.changeCursor(null);
     }
 
@@ -176,21 +177,23 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
     @Override
     public void onViewBind(View view, Cursor cursor, ODataRow row) {
 
+        Log.i("oVB","on View Bind started inervention");
 //        OControls.setText(view, android.R.id.text1, row.getString("name"));
 //        OControls.setText(view, android.R.id.text2, row.getString("type"));
-
-        OControls.setText(view, R.id.name, row.getString("name"));
-        if(row.getString("equipment") != null) {
-            OControls.setText(view, R.id.type, row.getString("equipment"));
-        }
-        else
-            Log.i("TP","Type null");
-        if(row.getString("state") == "done" && row.getString("state") == "Fixed")
-        {
-        mView.setBackgroundColor(Color.GREEN);
-        }
-//        OControls.setText(view, R.id.email, (row.getString("email").equals("false") ? " "
-//                : row.getString("email")));
+//        try {
+//            OControls.setText(view, R.id.name, row.getString("name"));
+//            if (row.getString("equipment") != null) {
+//                OControls.setText(view, R.id.type, row.getString("equipment"));
+//            } else
+//                Log.i("TP", "Type null");
+////        if(row.getString("state") == "done" && row.getString("state") == "Fixed")
+////        {
+////        mView.setBackgroundColor(Color.GREEN);
+////        }
+////        OControls.setText(view, R.id.email, (row.getString("email").equals("false") ? " "
+////                : row.getString("email")));
+//            //}
+//        } catch (Exception e) { Log.i("TP", "null");
+//        }
     }
 }
-

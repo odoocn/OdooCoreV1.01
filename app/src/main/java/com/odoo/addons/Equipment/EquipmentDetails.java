@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.odoo.App;
 import com.odoo.base.addons.ir.feature.OFileManager;
-import com.odoo.base.addons.cmms.CmmsEquipment;
+import com.odoo.base.addons.res.CmmsEquipment;
 import com.odoo.core.orm.ODataRow;
 import com.odoo.widgets.parallax.ParallaxScrollView;
 

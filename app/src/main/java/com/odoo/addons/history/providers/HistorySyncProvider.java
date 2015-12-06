@@ -1,6 +1,6 @@
 package com.odoo.addons.history.providers;
 
-import com.odoo.base.addons.cmms.CmmsHistory;
+import com.odoo.base.addons.res.CmmsHistory;
 import com.odoo.core.orm.provider.BaseModelProvider;
 
 /**

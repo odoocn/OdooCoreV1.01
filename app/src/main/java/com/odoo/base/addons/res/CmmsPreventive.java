@@ -1,4 +1,4 @@
-package com.odoo.base.addons.cmms;
+package com.odoo.base.addons.res;
 
 import android.content.Context;
 import android.net.Uri;

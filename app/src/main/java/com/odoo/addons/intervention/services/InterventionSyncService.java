@@ -3,7 +3,7 @@ package com.odoo.addons.intervention.services;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.odoo.base.addons.cmms.CmmsIntervention;
+import com.odoo.base.addons.res.CmmsIntervention;
 import com.odoo.core.service.OSyncAdapter;
 import com.odoo.core.service.OSyncService;
 import com.odoo.core.support.OUser;

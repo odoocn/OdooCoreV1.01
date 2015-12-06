@@ -1,6 +1,6 @@
 package com.odoo.addons.intervention.providers;
 
-import com.odoo.base.addons.cmms.CmmsIntervention;
+import com.odoo.base.addons.res.CmmsIntervention;
 import com.odoo.core.orm.provider.BaseModelProvider;
 
 /**

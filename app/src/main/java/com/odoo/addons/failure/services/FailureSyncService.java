@@ -3,7 +3,7 @@ package com.odoo.addons.failure.services;
 import android.content.Context;
 import android.os.Bundle;
 
-import com.odoo.base.addons.cmms.CmmsFailure;
+import com.odoo.base.addons.res.CmmsFailure;
 import com.odoo.core.service.OSyncAdapter;
 import com.odoo.core.service.OSyncService;
 import com.odoo.core.support.OUser;
