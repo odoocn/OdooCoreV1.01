@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/equipmentView"
+        android:id="@+id/interventionView"
         android:layout_width="match_parent"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/default_8dp"
@@ -41,7 +41,7 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/equipment"
+                android:id="@+id/intervention"
                 android:textAppearance="?android:textAppearanceSmall"
                 android:layout_gravity="center_vertical"
                 android:fontFamily="@string/font_normal"

@@ -17,7 +17,7 @@ public class CmmsIntervention extends OModel {
     public static final String AUTHORITY = "com.odoo.addons.intervention.Intervention";
     public static final String TAG = CmmsIntervention.class.getSimpleName();
     OColumn name = new OColumn("name", OVarchar.class);
-    OColumn equipment = new OColumn("equipment_id", CmmsEquipment.class, OColumn.RelationType.ManyToOne).setRequired();
+    OColumn equipment_id = new OColumn("type", CmmsEquipment.class, OColumn.RelationType.ManyToOne);
     OColumn user = new OColumn("user_id", ResUsers.class, OColumn.RelationType.ManyToOne).setRequired();
     OColumn date = new OColumn("date", ODate.class);
     OColumn observation = new OColumn("observation", OVarchar.class);
@@ -36,7 +36,7 @@ public class CmmsIntervention extends OModel {
             .addSelection("urgent","Urgent")
             .addSelection("other","Other");
     public CmmsIntervention(Context context, OUser user) {
-        super(context, "cmms.intervention(", user);
+        super(context, "cmms.intervention", user);
         setDefaultNameColumn("name");
     }
 

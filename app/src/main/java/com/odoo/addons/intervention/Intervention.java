@@ -2,6 +2,7 @@ package com.odoo.addons.intervention;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
@@ -139,7 +140,7 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
     @Override
     public void onStatusChange(Boolean changed) {
         if (changed) {
-            getLoaderManager().restartLoader(0, null, this);
+           // getLoaderManager().restartLoader(0, null, this);
         }
     }
     @Override
@@ -180,20 +181,26 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
         Log.i("oVB","on View Bind started inervention");
 //        OControls.setText(view, android.R.id.text1, row.getString("name"));
 //        OControls.setText(view, android.R.id.text2, row.getString("type"));
-//        try {
-//            OControls.setText(view, R.id.name, row.getString("name"));
-//            if (row.getString("equipment") != null) {
-//                OControls.setText(view, R.id.type, row.getString("equipment"));
+        try {
+
+            OControls.setText(view, R.id.name, row.getString("name"));
+            String state = row.getString("state");
+            if(state.equals("done"))
+                OControls.setTextColor(view, R.id.name,Color.GREEN);
+
+           // if (row.getString("equipment") != null) {
+
+                OControls.setText(view, R.id.intervention, row.getString("equipment_id"));
 //            } else
 //                Log.i("TP", "Type null");
-////        if(row.getString("state") == "done" && row.getString("state") == "Fixed")
-////        {
-////        mView.setBackgroundColor(Color.GREEN);
-////        }
-////        OControls.setText(view, R.id.email, (row.getString("email").equals("false") ? " "
-////                : row.getString("email")));
-//            //}
-//        } catch (Exception e) { Log.i("TP", "null");
+//        if(row.getString("state") == "done" && row.getString("state") == "Fixed")
+//        {
+//        mView.setBackgroundColor(Color.GREEN);
 //        }
+//        OControls.setText(view, R.id.email, (row.getString("email").equals("false") ? " "
+//                : row.getString("email")));
+            //}
+        } catch (Exception e) { Log.i("TP", "null");
+        }
     }
 }
