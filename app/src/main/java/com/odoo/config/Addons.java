@@ -36,8 +36,8 @@ public class Addons extends AddonsHelper {
      * OAddon partners = new OAddon(Partners.class).setDefault();
      */
     OAddon customers = new OAddon(Customers.class);
-    OAddon equipment = new OAddon(Equipment.class);
+    OAddon equipment = new OAddon(Equipment.class).setDefault();
     OAddon failure = new OAddon(Failure.class);
-    OAddon intervention = new OAddon(Intervention.class).setDefault();
+    OAddon intervention = new OAddon(Intervention.class);
     OAddon preventive = new OAddon(Preventive.class);
 }

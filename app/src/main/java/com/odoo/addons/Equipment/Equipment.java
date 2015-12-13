@@ -24,7 +24,9 @@ import com.odoo.core.support.addons.fragment.ISyncStatusObserverListener;
 import com.odoo.core.support.drawer.ODrawerItem;
 import com.odoo.core.support.list.OCursorListAdapter;
 import com.odoo.core.utils.BitmapUtils;
+import com.odoo.core.utils.IntentUtils;
 import com.odoo.core.utils.OControls;
+import com.odoo.core.utils.OCursorUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -157,12 +159,26 @@ public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.fabButton:
+                loadActivity(null);
+                break;
+        }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        ODataRow row = OCursorUtils.toDatarow((Cursor) listAdapter.getItem(position));
+        loadActivity(row);
 
+    }
+
+    private void loadActivity(ODataRow row) {
+        Bundle data = null;
+        if (row != null) {
+            data = row.getPrimaryBundleData();
+        }
+        IntentUtils.startActivity(getActivity(), EquipmentDetails.class, data);
     }
 
     @Override
