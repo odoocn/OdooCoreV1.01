@@ -16,8 +16,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.odoo.R;
+import com.odoo.addons.Equipment.Equipment;
 import com.odoo.base.addons.res.CmmsIntervention;
+import com.odoo.base.addons.res.ResPartner;
 import com.odoo.core.orm.ODataRow;
+import com.odoo.core.orm.OM2ORecord;
+import com.odoo.core.orm.fields.OColumn;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.addons.fragment.IOnSearchViewChangeListener;
 import com.odoo.core.support.addons.fragment.ISyncStatusObserverListener;
@@ -41,6 +45,10 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
     private View mView;
     private ListView listView;
     private OCursorListAdapter listAdapter;
+    private Equipment equipment;
+    private ODataRow record = null;
+    private Bundle extra;
+    private CmmsIntervention cmmsIntervention;
 
     ///////////////////////////////////////
     public static final String TAG = CmmsIntervention.class.getSimpleName();
@@ -187,10 +195,13 @@ public class Intervention extends BaseFragment implements ISyncStatusObserverLis
             String state = row.getString("state");
             if(state.equals("done"))
                 OControls.setTextColor(view, R.id.name,Color.GREEN);
-
+           // cmmsIntervention = new CmmsIntervention(this, null);
            // if (row.getString("equipment") != null) {
+         //   OM2ORecord om2ORecord = row.getM2ORecord("equipment_id");
+         //  equipment = new Equipment (, null);
 
-                OControls.setText(view, R.id.intervention, row.getString("equipment_id"));
+           // OControls.setText(view, R.id.intervention,);
+
 //            } else
 //                Log.i("TP", "Type null");
 //        if(row.getString("state") == "done" && row.getString("state") == "Fixed")

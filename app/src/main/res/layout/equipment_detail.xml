@@ -199,17 +199,110 @@
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         android:layout_height="wrap_content"></odoo.controls.OField>
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
                     <odoo.controls.OField
                         android:layout_width="match_parent"
                         app:iconResource="@drawable/ic_action_notes_content"
-                        app:fieldName="pside_con_bat_serial1"
+                        app:fieldName="pside_cont_software"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="on_switch"
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         android:layout_height="wrap_content"></odoo.controls.OField>
                     <odoo.controls.OField
                         android:layout_width="match_parent"
                         app:iconResource="@drawable/ic_action_notes_content"
-                        app:fieldName="pside_con_bat_serial2"
+                        app:fieldName="manual_recovery"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="limit_plate_type"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="door_lock_sensor"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="motor_con"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="rfid_soft"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="pp_remote_control"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="remote_pull_upgraded"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="pp_remote_software"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="pp_remote_charger_type"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+                    <View
+                        style="@style/ViewSeparator"
+                        android:layout_marginLeft="72dp" />
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="ramp"
+                        app:fieldLabelColor="@color/theme_secondary"
+                        app:fieldTextAppearance="?android:textAppearanceMedium"
+                        android:layout_height="wrap_content"></odoo.controls.OField>
+
+                    <odoo.controls.OField
+                        android:layout_width="match_parent"
+                        app:iconResource="@drawable/ic_action_notes_content"
+                        app:fieldName="platform"
                         app:fieldLabelColor="@color/theme_secondary"
                         app:fieldTextAppearance="?android:textAppearanceMedium"
                         android:layout_height="wrap_content"></odoo.controls.OField>
