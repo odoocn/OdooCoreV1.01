@@ -7,7 +7,7 @@ android {
     buildToolsVersion "23.0.2"
     defaultConfig {
         //FIXME: Change application name as your requirement
-        manifestPlaceholders = [applicationName: "Odoo"]
+        manifestPlaceholders = [applicationName: "odoo"]
         //FIXME: Please change the application id as your requirement
         applicationId "com.odoo"
         minSdkVersion 14

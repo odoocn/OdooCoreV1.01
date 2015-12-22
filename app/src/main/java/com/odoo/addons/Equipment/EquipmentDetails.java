@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,21 +18,17 @@ import android.widget.Toast;
 import com.odoo.App;
 import com.odoo.R;
 import com.odoo.base.addons.ir.feature.OFileManager;
-import com.odoo.base.addons.res.CmmsEquipment;
+import com.odoo.addons.Equipment.providers.CmmsEquipment;
 import com.odoo.core.orm.ODataRow;
-import com.odoo.core.orm.OModel;
 import com.odoo.core.orm.OValues;
 import com.odoo.core.orm.fields.OColumn;
-import com.odoo.core.utils.BitmapUtils;
 import com.odoo.core.utils.IntentUtils;
 import com.odoo.core.utils.OAppBarUtils;
-import com.odoo.core.utils.OStringColorUtil;
 import com.odoo.widgets.parallax.ParallaxScrollView;
 
 import odoo.controls.OField;
 import odoo.controls.OForm;
-import odoo.helper.OdooFields;
-import odoo.helper.utils.gson.OdooResult;
+import odoo.controls.OSelectionField;
 
 /**
  * Created by Sylwek on 05/12/2015.
@@ -78,6 +73,9 @@ public class EquipmentDetails extends AppCompatActivity
         extras = getIntent().getExtras();
         if (extras == null)
             mEditMode = true;
+        mForm = (OForm) findViewById(R.id.equipmentForm);
+        findViewById(R.id.equipmentFormEdit).setVisibility(View.GONE);
+        findViewById(R.id.parallaxScrollView).setVisibility(View.VISIBLE);
         setupActionBar();
     }
 
@@ -89,29 +87,28 @@ public class EquipmentDetails extends AppCompatActivity
             mMenu.findItem(R.id.menu_customer_cancel).setVisible(edit);
         }
         int color = Color.DKGRAY;
-        if (record != null) {
-            color = OStringColorUtil.getStringColor(this, record.getString("name"));
-        }
+//        if (record != null) {
+//            color = OStringColorUtil.getStringColor(this, record.getString("name"));
+//        }
         if (edit) {
             if (extras != null)
                 actionBar.setTitle(R.string.label_edit);
             else
                 actionBar.setTitle(R.string.label_new);
             actionBar.setBackgroundDrawable(new ColorDrawable(color));
-            mForm = (OForm) findViewById(R.id.customerFormEdit);
+            mForm = (OForm) findViewById(R.id.equipmentFormEdit);
             //captureImage = (ImageView) findViewById(R.id.captureImage);
           //  captureImage.setOnClickListener(this);
            // userImage = (ImageView) findViewById(android.R.id.icon1);
             findViewById(R.id.parallaxScrollView).setVisibility(View.GONE);
-            findViewById(R.id.customerScrollViewEdit).setVisibility(View.VISIBLE);
-            OField is_company = (OField) findViewById(R.id.is_company_edit);
-            is_company.setOnValueChangeListener(this);
-        } else {
+            findViewById(R.id.equipmentFormEdit).setVisibility(View.VISIBLE);
+         //   OField is_company = (OField) findViewById(R.id.is_company_edit);
+       //     is_company.setOnValueChangeListener(this);
+        } else
+        {
             actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.action_bar_shade));
            // userImage = (ImageView) findViewById(android.R.id.icon);
-            mForm = (OForm) findViewById(R.id.customerForm);
-            findViewById(R.id.customerScrollViewEdit).setVisibility(View.GONE);
-            findViewById(R.id.parallaxScrollView).setVisibility(View.VISIBLE);
+
         }
        setColor(color);
     }
@@ -120,16 +117,17 @@ public class EquipmentDetails extends AppCompatActivity
         if (extras == null) {
             setMode(mEditMode);
             userImage.setColorFilter(Color.parseColor("#ffffff"));
-          //  mForm.setEditable(mEditMode);
+            mForm.setEditable(mEditMode);
             mForm.initForm(null);
         } else {
             int rowId = extras.getInt(OColumn.ROW_ID);
             record = cmmsEquipment.browse(rowId);
             record.put("full_address", cmmsEquipment.getAddress(record));
+
             checkControls();
             setMode(mEditMode);
-          //  mForm.setEditable(mEditMode);
-            mForm.initForm(record);
+            mForm.setEditable(mEditMode);
+           mForm.initForm(record);
             mTitleView.setText(record.getString("name"));
            // setCustomerImage();
 //            if (record.getInt("id") != 0 && record.getString("large_image").equals("false")) {
@@ -137,34 +135,49 @@ public class EquipmentDetails extends AppCompatActivity
 //                bigImageLoader.execute(record.getInt("id"));
 //            }
         }
-    }
 
+    }
+    private void initFormValues() {
+        record = cmmsEquipment.browse(extras.getInt(OColumn.ROW_ID));
+        if (record == null) {
+            finish();
+        }
+
+//        if (!record.getString("type").equals("lead")) {
+//            actionBar.setTitle(R.string.label_opportunity);
+//            type = "opportunity";
+//            findViewById(R.id.opportunity_controls).setVisibility(View.VISIBLE);
+//        } else {
+//            actionBar.setTitle(R.string.label_lead);
+//        }
+        mForm.initForm(record);
+    }
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.full_address:
-                IntentUtils.redirectToMap(this, record.getString("full_address"));
-                break;
-//            case R.id.website:
-//                IntentUtils.openURLInBrowser(this, record.getString("website"));
+//        switch (v.getId()) {
+//            case R.id.full_address:
+//                IntentUtils.redirectToMap(this, record.getString("full_address"));
 //                break;
-//            case R.id.email:
-//                IntentUtils.requestMessage(this, record.getString("email"));
-//                break;
-            case R.id.phone_number:
-                IntentUtils.requestCall(this, record.getString("phone"));
-                break;
-            case R.id.mobile_number:
-                IntentUtils.requestCall(this, record.getString("mobile"));
-                break;
-//            case R.id.captureImage:
-//                fileManager.requestForFile(OFileManager.RequestType.IMAGE_OR_CAPTURE_IMAGE);
-//                break;
-        }
+////            case R.id.website:
+////                IntentUtils.openURLInBrowser(this, record.getString("website"));
+////                break;
+////            case R.id.email:
+////                IntentUtils.requestMessage(this, record.getString("email"));
+////                break;
+////            case R.id.phone_number:
+////                IntentUtils.requestCall(this, record.getString("phone"));
+////                break;
+////            case R.id.mobile_number:
+////                IntentUtils.requestCall(this, record.getString("mobile"));
+////                break;
+////            case R.id.captureImage:
+////                fileManager.requestForFile(OFileManager.RequestType.IMAGE_OR_CAPTURE_IMAGE);
+////                break;
+//        }
     }
 
     private void checkControls() {
-        findViewById(R.id.full_address).setOnClickListener(this);
+  //      findViewById(R.id.full_address).setOnClickListener(this);
 //        findViewById(R.id.website).setOnClickListener(this);
 //        findViewById(R.id.email).setOnClickListener(this);
 //        findViewById(R.id.phone_number).setOnClickListener(this);
@@ -197,7 +210,7 @@ public class EquipmentDetails extends AppCompatActivity
         mForm.setIconTintColor(color);
         findViewById(R.id.parallax_view).setBackgroundColor(color);
         findViewById(R.id.parallax_view_edit).setBackgroundColor(color);
-        findViewById(R.id.customerScrollViewEdit).setBackgroundColor(color);
+        findViewById(R.id.equipmentFormEdit).setBackgroundColor(color);
         if (captureImage != null) {
             GradientDrawable shapeDrawable =
                     (GradientDrawable) getResources().getDrawable(R.drawable.circle_mask_primary);

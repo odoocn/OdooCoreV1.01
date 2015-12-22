@@ -1,6 +1,5 @@
 package com.odoo.addons.Equipment.providers;
 
-import com.odoo.base.addons.res.CmmsEquipment;
 import com.odoo.core.orm.provider.BaseModelProvider;
 
 /**

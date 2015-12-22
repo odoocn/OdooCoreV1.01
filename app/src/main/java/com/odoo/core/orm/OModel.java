@@ -189,6 +189,12 @@ public class OModel implements ISyncServiceListener {
         return mColumns;
     }
 
+    public List<ODataRow> aggrigateGroupBy(String aggrigateColumn, String column, String group_by,
+                                           String having, String[] args) {
+        String sql = "select " + aggrigateColumn + "as total, " + column;
+        sql += " from " + getTableName() + " group by " + group_by + " having " + having;
+        return query(sql, args);
+    }
     public List<OColumn> getColumns(Boolean local) {
         if (local != null) {
             List<OColumn> cols = new ArrayList<>();

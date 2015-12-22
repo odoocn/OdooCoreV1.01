@@ -16,7 +16,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.odoo.R;
-import com.odoo.base.addons.res.CmmsEquipment;
+import com.odoo.addons.Equipment.providers.CmmsEquipment;
 import com.odoo.core.orm.ODataRow;
 import com.odoo.core.support.addons.fragment.BaseFragment;
 import com.odoo.core.support.addons.fragment.IOnSearchViewChangeListener;
@@ -65,16 +65,8 @@ public class Equipment extends BaseFragment implements ISyncStatusObserverListen
 @Override
 public void onViewCreated(View view, Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
-//    mView = view;
-//    listView = (ListView) mView.findViewById(R.id.listview);
-//    listAdapter = new OCursorListAdapter(getActivity(), null, android.R.layout.simple_list_item_1);
-//    listView.setAdapter(listAdapter);
-//    getLoaderManager().initLoader(0, null, this);
-//    listAdapter.setOnViewBindListener(this);
-//
-//
-//
-  setHasSyncStatusObserver(TAG, this, db());
+
+    setHasSyncStatusObserver(TAG, this, db());
 //    getLoaderManager().initLoader(0, null, this);
     setHasSwipeRefreshView(view, R.id.swipe_container, this);
     mView = view;
@@ -104,7 +96,7 @@ public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
         OControls.setVisible(mView, R.id.customer_no_items);
         setHasSwipeRefreshView(mView, R.id.customer_no_items, Equipment.this);
         OControls.setImage(mView, R.id.icon, R.drawable.ic_action_customers);
-        OControls.setText(mView, R.id.title,"no equipment found");
+        OControls.setText(mView, R.id.title,"No Equipment Found");
         OControls.setText(mView, R.id.subTitle, "");
     }
     if (db().isEmptyTable() && !syncRequested) {

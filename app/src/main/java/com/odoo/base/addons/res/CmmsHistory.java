@@ -3,6 +3,7 @@ package com.odoo.base.addons.res;
 import android.content.Context;
 import android.net.Uri;
 
+import com.odoo.addons.Equipment.providers.CmmsEquipment;
 import com.odoo.core.orm.OModel;
 import com.odoo.core.orm.fields.OColumn;
 import com.odoo.core.orm.fields.types.ODate;

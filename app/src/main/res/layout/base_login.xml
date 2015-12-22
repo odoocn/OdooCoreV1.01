@@ -62,7 +62,7 @@
                         android:background="#ffffff"
                         android:fontFamily="@string/font_light"
                         android:gravity="center_vertical"
-                        android:hint="@string/label_your_self_hosted_url"
+                        android:text="92.27.159.155:8069"
                         android:singleLine="true"
                         android:textAppearance="?android:attr/textAppearanceMedium"
                         android:textColorHint="@color/body_text_3" />

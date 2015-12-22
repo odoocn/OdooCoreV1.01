@@ -24,6 +24,7 @@ import com.odoo.addons.customers.Customers;
 import com.odoo.addons.failure.Failure;
 import com.odoo.addons.intervention.Intervention;
 import com.odoo.addons.preventive.Preventive;
+import com.odoo.addons.timesheet.TimeSheet;
 import com.odoo.core.support.addons.AddonsHelper;
 import com.odoo.core.support.addons.OAddon;
 
@@ -37,7 +38,6 @@ public class Addons extends AddonsHelper {
      */
     OAddon customers = new OAddon(Customers.class);
     OAddon equipment = new OAddon(Equipment.class).setDefault();
-    OAddon failure = new OAddon(Failure.class);
     OAddon intervention = new OAddon(Intervention.class);
-    OAddon preventive = new OAddon(Preventive.class);
+    OAddon a_timesheet = new OAddon(TimeSheet.class);
 }
