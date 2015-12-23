@@ -49,7 +49,7 @@ public class CmmsEquipment extends OModel {
     OColumn high = new OColumn("high", OBoolean.class);
     OColumn other_feet = new OColumn("other_feet", OBoolean.class);
     OColumn pod_bat_type = new OColumn("pod_bat_type", OSelection.class).addSelection("1","Pouch").addSelection("2", "3P Stab in").addSelection("3","2P Plug").setLabel("Poolpod Battery Type");
-    OColumn pump_mod_type = new OColumn("pump_mod_type", OSelection.class).addSelection("1","SMC Valves (4)").addSelection("2", "SMC Valves (3)").addSelection("3","Core PD Valves");
+    OColumn pump_mod_type = new OColumn("Pump Module Type", OSelection.class).addSelection("1","SMC Valves (4)").addSelection("2", "SMC Valves (3)").addSelection("3","Core PD Valves");
     OColumn pside_con_bat = new OColumn("pside_con_bat", OSelection.class).addSelection("1","1P Plug").addSelection("2", "1P Stab in").addSelection("3","Pouch");
     OColumn on_switch = new OColumn("on_switch", OSelection.class).addSelection("1", "Piezo Switch").addSelection("2", "Reed Switch");
     OColumn manual_recovery = new OColumn("manual_recovery", OSelection.class).addSelection("1", "Sick").addSelection("2", "Asmtec");
