@@ -21,7 +21,8 @@ package com.odoo.base.addons;
 
 import android.content.Context;
 
-import com.odoo.addons.timesheet.models.HrTimeSheetSheet;
+
+import com.odoo.addons.timesheet.providers.CmmsTimesheet;
 import com.odoo.base.addons.ir.IrAttachment;
 import com.odoo.base.addons.ir.IrModel;
 import com.odoo.base.addons.mail.MailMessage;
@@ -57,7 +58,7 @@ public class BaseModels {
         models.add(new CmmsHistory(context, user));
         models.add(new CmmsIntervention(context, user));
         models.add(new CmmsPreventive(context, user));
-        models.add(new HrTimeSheetSheet(context,user));
+        models.add(new CmmsTimesheet(context,user));
         return models;
     }
 }

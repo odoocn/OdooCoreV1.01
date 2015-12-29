@@ -135,7 +135,7 @@
         </service>
         <!-- Intervention Sync-->
         <provider
-            android:name="com.odoo.addons.intervention.providers.InterventionSyncProvider"
+            android:name=".addons.intervention.providers.TimesheetSyncProvider"
             android:authorities="com.odoo.addons.intervention.Intervention"
             android:label="Intervention"
             android:multiprocess="true" />
@@ -160,13 +160,13 @@
             android:name="com.odoo.addons.Equipment.EquipmentDetails"
             android:windowSoftInputMode="adjustPan" />
         <provider
-            android:name="com.odoo.addons.timesheet.providers.HrTimesheetProvider"
-            android:authorities="com.odoo.addons.timesheet.models.hr_timesheet"
+            android:name="com.odoo.addons.timesheet.providers.TimesheetSyncProvider"
+            android:authorities="com.odoo.addons.timesheet.providers.CmmsTimesheet"
             android:label="Timesheet"
             android:multiprocess="true" />
 
         <service
-            android:name="com.odoo.addons.timesheet.services.HrTimeSheetSyncService"
+            android:name="com.odoo.addons.timesheet.services.TimesheetSyncService"
             android:exported="true"
             android:process=":sync_timesheet">
             <intent-filter>
@@ -177,9 +177,6 @@
                 android:name="android.content.SyncAdapter"
                 android:resource="@xml/timesheet_sync_adapter" />
         </service>
-        <activity
-            android:name="com.odoo.addons.timesheet.TimeSheetDetail"
-            android:windowSoftInputMode="adjustPan" />
 
         <!-- Reminder Receivers// -->
         <receiver android:name="com.odoo.core.utils.reminder.ReminderReceiver" />
